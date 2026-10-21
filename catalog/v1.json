@@ -1,0 +1,150 @@
+{
+  "schema": 1,
+  "version": 2026102003,
+  "sites": [
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "domains": [
+        "youtube.com"
+      ],
+      "features": [
+        {
+          "id": "youtube.shorts",
+          "title": "Hide Shorts",
+          "detail": "Shorts shelves, the Shorts tab and Shorts in search results.",
+          "default": true,
+          "hide": [
+            "ytm-pivot-bar-item-renderer:has(.pivot-shorts)",
+            "ytm-pivot-bar-item-renderer:has(.pivot-bar-item-tab.shorts)",
+            "grid-shelf-view-model:has(ytm-shorts-lockup-view-model)",
+            "ytm-reel-shelf-renderer",
+            "ytm-rich-section-renderer:has(ytm-shorts-lockup-view-model)",
+            "ytm-rich-section-renderer:has(ytm-reel-shelf-renderer)",
+            "ytm-video-with-context-renderer:has(ytm-media-item.big-shorts-singleton)",
+            "ytm-video-with-context-renderer:has(ytm-thumbnail-overlay-time-status-renderer[data-style=\"SHORTS\"])",
+            "ytm-video-with-context-renderer:has(a[href^=\"/shorts/\"])",
+            "ytm-rich-item-renderer:has(a[href^=\"/shorts/\"])",
+            "ytm-compact-video-renderer:has(a[href^=\"/shorts/\"])",
+            "ytd-guide-entry-renderer:has(a[title=\"Shorts\"])",
+            "ytd-mini-guide-entry-renderer:has(a[title=\"Shorts\"])",
+            "ytd-reel-shelf-renderer",
+            "ytd-rich-shelf-renderer[is-shorts]",
+            "ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts])",
+            "grid-shelf-view-model:has(ytm-shorts-lockup-view-model-v2)",
+            "ytd-video-renderer:has(a[href^=\"/shorts/\"])",
+            "ytd-rich-item-renderer:has(a[href^=\"/shorts/\"])"
+          ]
+        },
+        {
+          "id": "youtube.shorts-pages",
+          "title": "Block Shorts links",
+          "detail": "Shorts links won't open, even when someone sends you one.",
+          "default": false,
+          "block": [
+            "^https?://[^/]*youtube\\.com/shorts/"
+          ]
+        },
+        {
+          "id": "youtube.home-feed",
+          "title": "Hide home feed",
+          "detail": "The recommended videos on the home page. Search and subscriptions still work.",
+          "default": false,
+          "hide": [
+            "[tab-identifier=\"FEwhat_to_watch\"] ytm-rich-grid-renderer",
+            "ytd-browse[page-subtype=\"home\"] ytd-rich-grid-renderer"
+          ]
+        },
+        {
+          "id": "youtube.related",
+          "title": "Hide related videos",
+          "detail": "The suggestions under and beside the video you are watching.",
+          "default": false,
+          "hide": [
+            "ytm-item-section-renderer[section-identifier=\"related-items\"]",
+            "ytd-watch-next-secondary-results-renderer",
+            "#related"
+          ]
+        },
+        {
+          "id": "youtube.comments",
+          "title": "Hide comments",
+          "default": false,
+          "hide": [
+            "yt-video-metadata-carousel-view-model:has(comments-entry-point-teaser-view-model)",
+            "yt-video-metadata-carousel-view-model:has(yt-comment-teaser-carousel-item-view-model)",
+            "yt-video-metadata-carousel-view-model:has(yt-comments-entry-point-message-view-model)",
+            "comments-entry-point-teaser-view-model",
+            "ytm-comments-entry-point-header-renderer",
+            "ytm-comment-section-renderer",
+            "ytd-comments#comments"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reddit",
+      "name": "Reddit",
+      "domains": [
+        "reddit.com"
+      ],
+      "features": [
+        {
+          "id": "reddit.home-feed",
+          "title": "Hide Home and Popular",
+          "detail": "The endless mixed feeds. Communities you open still show their posts.",
+          "default": false,
+          "hide": [
+            "shreddit-feed[reload-url*=\"/feeds/\"]",
+            "shreddit-post[view-context=\"AggregateFeed\"]"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "domains": [
+        "instagram.com"
+      ],
+      "features": [
+        {
+          "id": "instagram.reels",
+          "title": "Hide Reels",
+          "detail": "The Reels tab and links to Reels.",
+          "default": true,
+          "hide": [
+            "a[href^=\"/reels/\"]"
+          ]
+        },
+        {
+          "id": "instagram.reels-pages",
+          "title": "Block Reels pages",
+          "detail": "Reels won't open, even from a shared link.",
+          "default": false,
+          "block": [
+            "^https?://[^/]*instagram\\.com/reels?/"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "domains": [
+        "tiktok.com"
+      ],
+      "features": [
+        {
+          "id": "tiktok.site",
+          "title": "Block TikTok",
+          "detail": "The whole website. Its feed is the distraction.",
+          "default": false,
+          "block": [
+            "^https?://([^/]+\\.)?tiktok\\.com/"
+          ]
+        }
+      ]
+    }
+  ]
+}
